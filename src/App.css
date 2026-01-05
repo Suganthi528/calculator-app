@@ -1,0 +1,106 @@
+/* App layout and header styles */
+:root{
+  --max-width:920px;
+  --container-padding:2.25rem;
+}
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.app-container{
+  width:100%;
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:var(--container-padding) 1rem;
+}
+header{
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content:space-between;
+  max-width: 100%;
+  width: 538px;
+  margin-top: .5rem;
+  padding:1rem 0;
+}
+header h1{
+  margin:0;
+  font-weight:700;
+  font-size:2.2rem;
+  letter-spacing:0.5px;
+  color:inherit; /* theme provides header color */
+}
+
+/* Theme switcher */
+.themes{
+  display:flex;
+  flex-direction:row;
+  align-items:flex-end;
+  gap:1.5rem;
+}
+.themes p{
+  font-size:0.75rem;
+  letter-spacing: 1px;
+}
+.theme-toggle{
+  display:flex;
+  align-items:center;
+  gap:0.8rem;
+}
+.theme-number{
+  display:flex;
+  gap:0.6rem;
+  font-size:0.72rem;
+  font-weight:700;
+  opacity:0.85;
+  color:inherit;
+}
+.theme-number .theme-number{ /* nested in markup — ensure proper spacing */
+  display:inline-flex;
+}
+.theme-value{
+  display:flex;
+  align-items:center;
+  gap:0.45rem;
+  padding:6px;
+  border-radius:999px;
+  background-color:rgba(0,0,0,0.12);
+}
+.theme-btn{
+  width:1.05rem;
+  height:1.05rem;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+  box-shadow:0 3px 0 rgba(0,0,0,0.18);
+  transition:transform .12s, box-shadow .12s;
+  background:#e6e6e6; /* neutral fallback */
+}
+.theme-btn:focus{outline:none}
+.theme-btn:hover{transform:translateY(-1px)}
+
+/* Give each theme button a suggestive base color (overridden by theme when active) */
+.theme-btn.basic{background:#ff6b5b}
+.theme-btn.light{background:#ffd166}
+.theme-btn.dark{background:#8a6cff}
+
+.theme-btn.active{transform:scale(1.06); box-shadow:0 6px 0 rgba(0,0,0,0.12)}
+
+/* Small responsive tweaks */
+@media (max-width:520px){
+  header h1{font-size:1.6rem}
+  .theme-number{font-size:0.62rem}
+  .theme-btn{width:0.95rem;height:0.95rem}
+}
+
+/* Ensure calculator area gets space (if you add .calculator later) */
+.main{
+  width:100%;
+  max-width:var(--max-width);
+  margin:1.5rem auto 0;
+  padding:0 1rem;
+}
